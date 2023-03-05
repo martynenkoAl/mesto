@@ -5,7 +5,7 @@
   display: grid;
   grid-template-columns: 120px 1fr 150px;
   grid-template-areas:
-  "photo info button"
+  "photo info button";
 }
 
 @media screen and (max-width: 767px) {
@@ -17,6 +17,6 @@
     grid-template-areas:
     "photo"
     "info"
-    "button"
+    "button";
   }
 }
