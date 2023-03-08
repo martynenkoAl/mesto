@@ -6,6 +6,18 @@
   margin: 0;
   padding: 0;
   grid-area: name;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 400px;
+}
+
+@media screen and (max-width: 1023px) {
+  .profile__name {
+    font-size: 30px;
+    line-height: 35px;
+    max-width: 230px;
+  }
 }
 
 @media screen and (max-width: 767px) {
