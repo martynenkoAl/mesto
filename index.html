@@ -22,56 +22,13 @@
         <button class="profile__add-btn" aria-label="Добавить" type="button" ></button>
       </section>
       <section class="elements">
-        <ul class="elements__container">
-          <li class="element">
-            <img src="./images/karachaevsk.jpg" alt="Старинное построение в Карачаевске" class="element__picture">
-            <div class="element__info">
-              <h2 class="element__name">Карачаевск</h2>
-              <button type="button" aria-label="Нравится" class="element__button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__picture">
-            <div class="element__info">
-              <h2 class="element__name">Гора Эльбрус</h2>
-              <button type="button" aria-label="Нравится" class="element__button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img src="./images/dombai.jpg" alt="Горы Домбая" class="element__picture">
-            <div class="element__info">
-              <h2 class="element__name">Домбай</h2>
-              <button type="button" aria-label="Нравится" class="element__button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img src="./images/elbrus.jpg" alt="Гора Эльбрус" class="element__picture">
-            <div class="element__info">
-              <h2 class="element__name">Гора Эльбрус</h2>
-              <button type="button" aria-label="Нравится" class="element__button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img src="./images/dombai.jpg" alt="Горы Домбая" class="element__picture">
-            <div class="element__info">
-              <h2 class="element__name">Домбай</h2>
-              <button type="button" aria-label="Нравится" class="element__button"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img src="./images/karachaevsk.jpg" alt="Старинное построение в Карачаевске" class="element__picture">
-            <div class="element__info">
-              <h2 class="element__name">Карачаево-Черкессия</h2>
-              <button type="button" aria-label="Нравится" class="element__button"></button>
-            </div>
-          </li>
-        </ul>
+        <ul class="elements__container"></ul>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&#169; 2020 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup_user">
       <div class="popup__container">
         <h3 class="popup__title">Редактировать профиль</h3>
         <form action="" class="popup__form" name="popupForm" >
@@ -84,7 +41,37 @@
         <button type="button" aria-label="Закрыть" class="popup__close"></button>
       </div>
     </div>
+    <div class="popup popup_cards">
+      <div class="popup__container">
+        <h3 class="popup__title">Новое место</h3>
+        <form action="" class="popup__form popup__form-cards" name="popupForm" >
+          <input type="text" name="place" placeholder="Название" class="popup__text popup__text_type_place">
+          <input type="text" name="picture" placeholder="Ссылка на картинку" class="popup__text popup__text_type_link">
+          <button type="submit" aria-label="Создать" class="popup__submit-btn">
+          Создать
+          </button>
+        </form>
+        <button type="button" aria-label="Закрыть" class="popup__close"></button>
+      </div>
+    </div>
+    <div class="popup popup_image popup_dark">
+      <div class="popup__display">
+        <img src="#" alt="Изображение" class="popup__photo">
+        <h4 class="popup__placename"></h4>
+        <button type="button" aria-label="Закрыть" class="popup__close"></button>
+      </div>
+    </div>
   </div>
+  <template id="card">
+    <li class="element">
+      <img src="#" alt="Здесь должно быть изображение" class="element__picture">
+      <div class="element__info">
+        <h2 class="element__name"></h2>
+        <button type="button" aria-label="Нравится" class="element__like-btn"></button>
+      </div>
+      <button type="button" class="element__delete-btn" aria-label="Удалить карточку"></button>
+    </li>
+  </template>
 <script src="./scripts/index.js"></script>
 </body>
 </html>
