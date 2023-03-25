@@ -34,8 +34,6 @@ const formCard = popupCards.querySelector('.popup__form');
 
 // функция открытия попапа
 const openPopup = function (popup) {
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
   popup.classList.add('popup_opened');
 }
 
@@ -139,6 +137,8 @@ formCard.addEventListener('submit', handleFormSubmitCards);
 
 //открываем попап
 popupEditButton.addEventListener('click', function () {
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
   openPopup(popupUser);
 })
 popupAddButton.addEventListener('click', function () {
