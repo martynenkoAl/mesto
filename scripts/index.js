@@ -1,4 +1,5 @@
 // popups
+//const popupElement = document.querySelectorAll('.popup');
 const popupUser = document.querySelector('.popup_user');
 const popupCards = document.querySelector('.popup_cards');
 const popupImage = document.querySelector('.popup_image');
@@ -32,15 +33,46 @@ const list = document.querySelector('.elements__container'); // куда вст�
 const formUser = popupUser.querySelector('.popup__form');
 const formCard = popupCards.querySelector('.popup__form');
 
+
+
 // функция открытия попапа
 const openPopup = function (popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupByEsc);
 }
 
 // функция закрытия попапа
 const closePopup = function (popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupByEsc);
 }
+
+// Закрытие попапа по Esc
+const closePopupByEsc = function (evt) {
+  if (evt.key === 'Escape') {
+    const activePopup = document.querySelector('.popup_opened');
+    if (activePopup) {
+      closePopup(activePopup);
+    }
+  }
+};
+
+// Закрытие попапа по overlay
+const closePopupByClickOverlay = () => {
+  const popupList = Array.from(document.querySelectorAll('.popup'));
+  popupList.forEach(popup => {
+    popup.addEventListener('click', function (evt) {
+      if (evt.target === evt.currentTarget) {
+      closePopup(popup);
+    };
+    });
+  });
+};
+closePopupByClickOverlay();
+
+
+
+
 
 // массив с первоначальными карточками
 const initialCards = [
@@ -132,6 +164,8 @@ function handleFormSubmitCards (evt) {
  }
 
 
+
+
 formUser.addEventListener('submit', handleFormSubmit);
 formCard.addEventListener('submit', handleFormSubmitCards);
 
@@ -149,3 +183,4 @@ closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
 });
+
