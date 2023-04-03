@@ -33,6 +33,9 @@ const list = document.querySelector('.elements__container'); // куда вст�
 const formUser = popupUser.querySelector('.popup__form');
 const formCard = popupCards.querySelector('.popup__form');
 
+// деактивация кнопки Submit
+const inputs = Array.from(formCard.querySelectorAll('.popup__text'));
+const submitButton = formCard.querySelector('.popup__submit-btn');
 
 
 // функция открытия попапа
@@ -51,9 +54,7 @@ const closePopup = function (popup) {
 const closePopupByEsc = function (evt) {
   if (evt.key === 'Escape') {
     const activePopup = document.querySelector('.popup_opened');
-    if (activePopup) {
       closePopup(activePopup);
-    }
   }
 };
 
@@ -70,37 +71,18 @@ const closePopupByClickOverlay = () => {
 };
 closePopupByClickOverlay();
 
-
-
-
-
-// массив с первоначальными карточками
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+// Изменение состояния кнопки создания карточек
+const toggleButton = (inputs, submitButton) => {
+  if (!inputs.value) {
+    submitButton.classList.add('popup__submit-btn_inactive');
+    submitButton.setAttribute('disabled', true);
+  } else {
+    submitButton.classList.remove('popup__submit-btn_inactive');
+    submitButton.removeAttribute('disabled');
   }
-];
+};
+
+
 
 initialCards.forEach(item => {
   const firstCards = createCard(item);
@@ -177,6 +159,7 @@ popupEditButton.addEventListener('click', function () {
 })
 popupAddButton.addEventListener('click', function () {
   openPopup(popupCards);
+  toggleButton(inputs, submitButton);
 })
 // закрываем попап
 closeButtons.forEach((button) => {
