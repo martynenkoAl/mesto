@@ -8,3 +8,9 @@
   padding: 0;
 }
 
+@media screen and (max-width: 767px) {
+  .popup__text {
+    line-height: 30px;
+  }
+}
+

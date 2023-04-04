@@ -5,6 +5,13 @@
   font-size: 12px;
   line-height: 15px;
   color: #FF0000;
-  position: absolute;
-  top: 30px;
+  display: block;
+  min-height: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .popup__text-error_active {
+    min-height: 27px;
+    line-height: 13px;
+  }
 }
