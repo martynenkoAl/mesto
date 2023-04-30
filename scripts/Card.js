@@ -17,20 +17,26 @@ export default class Card {
     return cardElement;
   }
 
-  // слушатели лайка и урны
+  // поставить лайк
+  _handleClickLike = () => {
+    this._elementLikeBtn.classList.toggle('element__like-btn_active');
+  }
+
+  // удалить карточку
+  _handleDeleteCard = () => {
+    this._element.remove();
+  }
+
+  // открыть попап с картинкой
+  _handleOpenImagePopup = () => {
+    this._openImage(this._item);
+  }
+
+  // слушатели лайка, урны и открытия картинки
   _setEventListeners() {
-    this._elementLikeBtn.addEventListener('click', () => {
-      this._elementLikeBtn.classList.toggle('element__like-btn_active');
-    });
-
-    this._elementDeleteBtn.addEventListener('click', () => {
-      this._element.remove();
-    });
-
-    //лисенер для попапа с картинкой
-    this._elementPicture.addEventListener('click', () => {
-      this._openImage(this._item);
-    });
+    this._elementLikeBtn.addEventListener('click', this._handleClickLike);
+    this._elementDeleteBtn.addEventListener('click', this._handleDeleteCard);
+    this._elementPicture.addEventListener('click', this._handleOpenImagePopup);
   }
 
   // функция создания карточки
