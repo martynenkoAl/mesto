@@ -25,6 +25,7 @@ export default class Card {
   // удалить карточку
   _handleDeleteCard = () => {
     this._element.remove();
+    this._element = null;
   }
 
   // открыть попап с картинкой
