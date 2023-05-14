@@ -2,7 +2,7 @@ export default class Card {
   constructor(item, templateSelector, openImage) {
     this._item = item;
     this._link = item.link;
-    this._name = item.name;
+    this._username = item.place;
     this._templateSelector = templateSelector;
     this._openImage = openImage;
   }
@@ -48,8 +48,8 @@ export default class Card {
     this._elementDeleteBtn = this._element.querySelector('.element__delete-btn');
 
     this._elementPicture.src = this._link;
-    this._elementPicture.alt = this._name;
-    this._elementName.textContent = this._name;
+    this._elementPicture.alt = this._username;
+    this._elementName.textContent = this._username;
     this._setEventListeners();
 
     return this._element;
