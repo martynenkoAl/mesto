@@ -12,7 +12,9 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img src="<%=require('./images/avatar_image.jpg')%>" alt="Жак-Ив Кусто" class="profile__avatar">
+        <button class="profile__avatar-btn" type="button">
+          <img src="<%=require('./images/avatar_image.jpg')%>" alt="Жак-Ив Кусто" class="profile__avatar">
+        </button>
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <button class="profile__edit-btn" aria-label="Править" type="button" ></button>
@@ -72,13 +74,40 @@
         <button type="button" aria-label="Закрыть" class="popup__close"></button>
       </div>
     </div>
+    <div class="popup popup_confirm">
+      <div class="popup__container">
+        <h3 class="popup__title popup__title_confirm">Вы уверены?</h3>
+        <form action="" class="popup__form" name="popupForm" novalidate>
+          <button type="submit" aria-label="Подтвердить" class="popup__submit-btn">Да</button>
+        </form>
+        <button type="button" aria-label="Закрыть" class="popup__close"></button>
+      </div>
+    </div>
+    <div class="popup popup_avatarform">
+      <div class="popup__container">
+        <h3 class="popup__title">Обновить аватар</h3>
+        <form action="" class="popup__form" name="popupForm" novalidate>
+          <label class="popup__field">
+            <input id="avatar-input" type="url" name="avatarpicture" placeholder="Ссылка на аватар" class="popup__text popup__text_type_avatar" required>
+            <span class="popup__text-error_avatarpicture popup__text-error"></span>
+          </label>
+          <button type="submit" aria-label="Сохранить" class="popup__submit-btn">
+          Сохранить
+          </button>
+        </form>
+        <button type="button" aria-label="Закрыть" class="popup__close"></button>
+      </div>
+    </div>
   </div>
   <template id="card">
     <li class="element">
       <img src="#" alt="Здесь должно быть изображение" class="element__picture">
       <div class="element__info">
         <h2 class="element__name"></h2>
-        <button type="button" aria-label="Нравится" class="element__like-btn"></button>
+        <div class="element__likes">
+          <button type="button" aria-label="Нравится" class="element__like-btn"></button>
+          <h2 class="element__likescount">0</h2>
+        </div>
       </div>
       <button type="button" class="element__delete-btn" aria-label="Удалить карточку"></button>
     </li>
