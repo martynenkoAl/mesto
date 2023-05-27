@@ -35,13 +35,13 @@ function createNewCard (item) {
     if(firstCards.isLiked()) {
       api.deleteLike(item._id)
         .then(res => {
-          firstCards.changeLikeColor(res.likes)
+          firstCards.changeLikes(res.likes)
         })
         .catch(err => console.log(err))
     } else {
       api.putLike(item._id)
         .then(res => {
-          firstCards.changeLikeColor(res.likes)
+          firstCards.changeLikes(res.likes)
         })
         .catch(err => console.log(err))
     }

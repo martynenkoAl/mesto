@@ -17,11 +17,19 @@ export default class PopupWithForm extends Popup {
     this._inputs.forEach((input) => input.value = data[input.name]);
   }
 
+  _setLoadingText() {
+    if(this._submitBtn.textContent.includes('Сохра')) {
+      this._submitBtn.textContent = 'Сохранение...';
+    } else if(this._submitBtn.textContent.includes('Созда')) {
+      this._submitBtn.textContent = 'Создание...';
+  }
+}
+
   setEventListeners() {
     super.setEventListeners();
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault()
-      this._submitBtn.textContent = `${this._submitBtn.textContent}...`;
+      this._setLoadingText()
       this._submitForm(this._getInputValues())
     })
   }

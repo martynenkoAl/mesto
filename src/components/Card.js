@@ -55,22 +55,23 @@ export default class Card {
     }
 
     // функции для лайков
-    _checkLikes() {
-      const myLike = this._likes.find(user => user._id === this._myid);
-      if(myLike !== undefined) {
+    _updateLikesView() {
+      if(this.isLiked()) {
         this._elementLikeBtn.classList.add('element__like-btn_active');
+      } else {
+        this._elementLikeBtn.classList.remove('element__like-btn_active');
       }
-      this._likesCounter.textContent = this._likesNumber;
+      this._likesCounter.textContent = this._likes.length;
     }
 
     isLiked() {
-      return this._elementLikeBtn.classList.contains('element__like-btn_active');
+      return this._likes.some(user => user._id === this._myid)
     }
 
 
-  changeLikeColor(likes) {
-    this._elementLikeBtn.classList.toggle('element__like-btn_active');
-    this._likesCounter.textContent = likes.length;
+  changeLikes(likes) {
+    this._likes = likes;
+    this._updateLikesView();
   }
 
   //функция удаления карточки
@@ -93,7 +94,7 @@ export default class Card {
     this._elementName.textContent = this._username;
 
     this._showDeleteButton();
-    this._checkLikes();
+    this._updateLikesView();
     this._setEventListeners();
 
     return this._element;
