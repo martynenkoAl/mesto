@@ -13,7 +13,7 @@ https://martynenkoal.github.io/mesto/
 2. npm i
 3. npm run dev
 
-**Технологии**
+### Технологии
 * HTML5
 * CSS3
 * JavaScript
